@@ -1,25 +1,25 @@
 Summary:	DBus service to handle SELinux administration tasks
 Summary(pl.UTF-8):	Usługa DBus do obsługi zadań administracyjnych SELinuksa
 Name:		selinux-dbus
-Version:	2.8
+Version:	2.9
 Release:	1
 License:	GPL v2
 Group:		Applications/System
 #Source0Download: https://github.com/SELinuxProject/selinux/wiki/Releases
-Source0:	https://raw.githubusercontent.com/wiki/SELinuxProject/selinux/files/releases/20180524/%{name}-%{version}.tar.gz
-# Source0-md5:	23f0264df3ed123904a17d71f2a5b325
+Source0:	https://github.com/SELinuxProject/selinux/releases/download/20190315/%{name}-%{version}.tar.gz
+# Source0-md5:	e403f9745fad67aae5903909572ca5b8
 URL:		https://github.com/SELinuxProject/selinux/wiki
 BuildRequires:	rpm-pythonprov
 # /usr/bin/semodule
-Requires:	policycoreutils >= 2.8
+Requires:	policycoreutils >= 2.9
 Requires:	python >= 2
 Requires:	python-dbus
 Requires:	python-modules >= 2
 Requires:	python-pygobject3 >= 3
-Requires:	python-selinux >= 2.8
+Requires:	python-selinux >= 2.9
 Requires:	python-slip-dbus
 # /usr/sbin/semanage
-Requires:	selinux-python >= 2.8
+Requires:	selinux-python >= 2.9
 Conflicts:	policycoreutils-sepolicy < 2.7
 Conflicts:	system-config-selinux < 2.7
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
