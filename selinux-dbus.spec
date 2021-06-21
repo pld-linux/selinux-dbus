@@ -1,27 +1,30 @@
 Summary:	DBus service to handle SELinux administration tasks
 Summary(pl.UTF-8):	Usługa DBus do obsługi zadań administracyjnych SELinuksa
 Name:		selinux-dbus
-Version:	2.9
-Release:	2
+Version:	3.1
+Release:	1
 License:	GPL v2
 Group:		Applications/System
 #Source0Download: https://github.com/SELinuxProject/selinux/wiki/Releases
-Source0:	https://github.com/SELinuxProject/selinux/releases/download/20190315/%{name}-%{version}.tar.gz
-# Source0-md5:	e403f9745fad67aae5903909572ca5b8
+Source0:	https://github.com/SELinuxProject/selinux/releases/download/20200710/%{name}-%{version}.tar.gz
+# Source0-md5:	b6ad8b3d8497782c6ed480514dfc8ee8
 URL:		https://github.com/SELinuxProject/selinux/wiki
 BuildRequires:	rpm-pythonprov
+BuildRequires:	rpmbuild(macros) >= 1.507
 # /usr/bin/semodule
-Requires:	policycoreutils >= 2.9
+Requires:	policycoreutils >= 3.1
 Requires:	python3
 Requires:	python3-dbus
 Requires:	python3-modules
 Requires:	python3-pygobject3 >= 3
-Requires:	python3-selinux >= 2.9
+Requires:	python3-selinux >= 3.1
+Requires:	python3-sepolicy >= 3.1
 Requires:	python3-slip-dbus
 # /usr/sbin/semanage
-Requires:	selinux-python >= 2.9
+Requires:	selinux-python >= 3.1
 Conflicts:	policycoreutils-sepolicy < 2.7
 Conflicts:	system-config-selinux < 2.7
+BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -63,8 +66,8 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-%py_comp $RPM_BUILD_ROOT%{_datadir}/system-config-selinux
-%py_ocomp $RPM_BUILD_ROOT%{_datadir}/system-config-selinux
+%py3_comp $RPM_BUILD_ROOT%{_datadir}/system-config-selinux
+%py3_ocomp $RPM_BUILD_ROOT%{_datadir}/system-config-selinux
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -77,4 +80,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/polkit-1/actions/org.selinux.policy
 %dir %{_datadir}/system-config-selinux
 %attr(755,root,root) %{_datadir}/system-config-selinux/selinux_server.py
-%{_datadir}/system-config-selinux/selinux_server.py[co]
+%{_datadir}/system-config-selinux/__pycache__
