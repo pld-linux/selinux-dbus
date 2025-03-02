@@ -1,26 +1,27 @@
+%define	selinux_ver	3.8
 Summary:	DBus service to handle SELinux administration tasks
 Summary(pl.UTF-8):	Usługa DBus do obsługi zadań administracyjnych SELinuksa
 Name:		selinux-dbus
-Version:	3.7
+Version:	3.8
 Release:	1
 License:	GPL v2
 Group:		Applications/System
 #Source0Download: https://github.com/SELinuxProject/selinux/wiki/Releases
 Source0:	https://github.com/SELinuxProject/selinux/releases/download/%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	5a345861919bc43cfea14b0c29c89e64
+# Source0-md5:	8fab1cc02fe1ccb387d33a8c406594cf
 URL:		https://github.com/SELinuxProject/selinux/wiki
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.507
 # /usr/bin/semodule
-Requires:	policycoreutils >= 3.7
+Requires:	policycoreutils >= %{selinux_ver}
 Requires:	python3
 Requires:	python3-dbus
 Requires:	python3-modules
 Requires:	python3-pygobject3 >= 3
-Requires:	python3-selinux >= 3.7
-Requires:	python3-sepolicy >= 3.7
+Requires:	python3-selinux >= %{selinux_ver}
+Requires:	python3-sepolicy >= %{selinux_ver}
 # /usr/sbin/semanage
-Requires:	selinux-python >= 3.7
+Requires:	selinux-python >= %{selinux_ver}
 Conflicts:	policycoreutils-sepolicy < 2.7
 Conflicts:	system-config-selinux < 2.7
 BuildArch:	noarch
