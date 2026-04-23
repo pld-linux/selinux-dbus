@@ -1,14 +1,14 @@
-%define	selinux_ver	3.8
+%define	selinux_ver	3.10
 Summary:	DBus service to handle SELinux administration tasks
 Summary(pl.UTF-8):	Usługa DBus do obsługi zadań administracyjnych SELinuksa
 Name:		selinux-dbus
-Version:	3.8.1
+Version:	3.10
 Release:	1
 License:	GPL v2
 Group:		Applications/System
 #Source0Download: https://github.com/SELinuxProject/selinux/wiki/Releases
 Source0:	https://github.com/SELinuxProject/selinux/releases/download/%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	f7c87d7c83c4b310c3ed15f23512274f
+# Source0-md5:	2944e22386822b6230dad4be14a0a8dd
 URL:		https://github.com/SELinuxProject/selinux/wiki
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.507
